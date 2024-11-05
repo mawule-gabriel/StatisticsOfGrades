@@ -6,7 +6,7 @@ public class GradeStatistics {
 
     public GradeStatistics(int numStudents) {
         scores = new int[numStudents];
-        stats = new int[4]; // stats[0] = <40, stats[1] = 41-60, stats[2] = 61-80, stats[3] = 81-100
+        stats = new int[5]; // stats[0] = 0-20, stats[1] = 21-40, stats[2] = 41-60, stats[3] = 61-80, stats[4] = 81-100
     }
 
     public void initializeScores() {
@@ -48,17 +48,23 @@ public class GradeStatistics {
     }
 
     public void calculateStats() {
-        for (int score : scores) {
-            if (score > 100) {
+        // Initialize the stats array to 0 for each range
+        for (int i = 0; i < stats.length; i++) {
+            stats[i] = 0;
+        }
 
-            } else if (score > 80) {
-                stats[3]++; // Count grades from 81 to 100
-            } else if (score >= 61) {
-                stats[2]++;
-            } else if (score >= 41) {
-                stats[1]++;
-            } else if (score >= 0) {
-                stats[0]++;
+        // Calculate stats for each range
+        for (int score : scores) {
+            if (score >= 0 && score <= 20) {
+                stats[0]++; // Grades from 0 to 20
+            } else if (score >= 21 && score <= 40) {
+                stats[1]++; // Grades from 21 to 40
+            } else if (score >= 41 && score <= 60) {
+                stats[2]++; // Grades from 41 to 60
+            } else if (score >= 61 && score <= 80) {
+                stats[3]++; // Grades from 61 to 80
+            } else if (score >= 81 && score <= 100) {
+                stats[4]++; // Grades from 81 to 100
             }
         }
     }
