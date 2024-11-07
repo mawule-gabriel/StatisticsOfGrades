@@ -4,6 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of students: ");
+        while (!scanner.hasNextInt()){
+            System.out.println("Please enter a valid value");
+            scanner.next();
+        }
         int numStudents = scanner.nextInt();
 
         GradeStatistics gradeStats = new GradeStatistics(numStudents);

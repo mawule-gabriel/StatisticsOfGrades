@@ -15,6 +15,10 @@ public class GradeStatistics {
 
         for (int i = 0; i < scores.length; i++) {
             System.out.print("Score for student " + (i + 1) + ": ");
+            while(!scanner.hasNextInt()){
+                System.out.println("Please enter a valid value (0 - 100");
+                scanner.next();
+            }
             scores[i] = scanner.nextInt();
         }
     }
