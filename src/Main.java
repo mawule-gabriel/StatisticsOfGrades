@@ -8,7 +8,13 @@ public class Main {
             System.out.println("Please enter a valid value");
             scanner.next();
         }
+
         int numStudents = scanner.nextInt();
+
+        while (numStudents <= 0) {
+            System.out.println("Please enter a valid number of students (greater than 0): ");
+            numStudents = scanner.nextInt();
+        }
 
         GradeStatistics gradeStats = new GradeStatistics(numStudents);
         gradeStats.initializeScores();

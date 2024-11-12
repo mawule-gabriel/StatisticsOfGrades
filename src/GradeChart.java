@@ -1,5 +1,5 @@
 public class GradeChart {
-    private GradeStatistics gradeStatistics;
+    private final GradeStatistics gradeStatistics;
 
     public GradeChart(GradeStatistics gradeStatistics) {
         this.gradeStatistics = gradeStatistics;
